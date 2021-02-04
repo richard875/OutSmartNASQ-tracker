@@ -1,2 +1,7 @@
+# constants
 .vscode
 node_modules
+
+# data
+parsedStockData/*
+stockData/*
