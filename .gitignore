@@ -6,4 +6,5 @@ node_modules
 data/html/*
 data/json/*
 data/markdown/*
-data/static/*
+data/static/gmailData.ts
+data/static/tickerData.ts
