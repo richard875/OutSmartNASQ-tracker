@@ -1,8 +1,8 @@
 #!/bin/bash
 
-ts-node "./src/api/run.ts"
+# ts-node "./src/api/run.ts"
 
 # sleep for 5 seconds
-sleep 5
+sleep 1
 
 ts-node "./main.ts"

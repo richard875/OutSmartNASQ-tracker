@@ -1,7 +1,7 @@
 import makeStockHeading from "./makeStockHeading";
 import makeIndividualStockData from "./makeIndividualStockData";
 
-const stockAdded = (
+const stockAdded = async (
   text: string,
   lateststockData: any,
   secondlateststockData: any
@@ -19,9 +19,11 @@ const stockAdded = (
   if (stocksAdd.length) {
     text += "\n<table style='width: 100%;'>";
     text = makeStockHeading(text);
-    stocksAdd.map((stock: any) => {
-      text = makeIndividualStockData(text, stock);
-    });
+
+    for (var i = 0; i < stocksAdd.length; i++) {
+      text += await makeIndividualStockData(stocksAdd[i]);
+    }
+
     text += "\n</table>";
   } else {
     text += "\n<p style='text-align: center'>Nothing has changed</p>";

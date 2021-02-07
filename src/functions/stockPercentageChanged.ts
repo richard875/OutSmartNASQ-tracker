@@ -17,13 +17,16 @@ const stockPercentageChanged = (
   });
 
   let stockPercentageChanged = stockUnchanged.filter((stock: any) => {
-    let changedPercentage =
-      lateststockData.filter(
-        (ele: any) => ele.instrumentId === stock.instrumentId
-      )[0].investmentPct -
-      secondlateststockData.filter(
-        (ele: any) => ele.instrumentId === stock.instrumentId
-      )[0].investmentPct;
+    let changedPercentage = Number(
+      (
+        lateststockData.filter(
+          (ele: any) => ele.instrumentId === stock.instrumentId
+        )[0].investmentPct -
+        secondlateststockData.filter(
+          (ele: any) => ele.instrumentId === stock.instrumentId
+        )[0].investmentPct
+      ).toFixed(2)
+    );
 
     changedPercentage == 0
       ? null
@@ -48,8 +51,8 @@ const stockPercentageChanged = (
       text += `\n<th>${stockInfo[0].SymbolFull}</th>`;
       text +=
         stockThatChangedPercentage[i] >= 0
-          ? `\n<th><span style='color: green'>${stockThatChangedPercentage[i]}%&#8593;</span></th>`
-          : `\n<th><span style='color: red'>${stockThatChangedPercentage[i]}%&#8595;</span></th>`;
+          ? `\n<th><span style='color: green'>${stockThatChangedPercentage[i]}%&#9650;</span></th>`
+          : `\n<th><span style='color: red'>${stockThatChangedPercentage[i]}%&#9660;</span></th>`;
       text += "\n</tr>";
     }
     text += "\n</table>";
