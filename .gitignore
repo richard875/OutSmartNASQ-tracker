@@ -3,6 +3,7 @@
 node_modules
 
 # data
-parsedStockData/*
-stockData/*
-gmailData.txt
+data/html/*
+data/json/*
+data/markdown/*
+data/static/*

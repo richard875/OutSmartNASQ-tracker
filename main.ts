@@ -1,7 +1,3 @@
-import getRawStockAPI from "./getLiveData";
+import index from "./src/app/index";
 
-// console.log(data);
-let printData = async () => {
-  const data = await getRawStockAPI();
-  console.log(data);
-};
+index();
