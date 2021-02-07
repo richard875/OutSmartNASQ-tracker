@@ -6,4 +6,4 @@ node_modules
 data/html/*
 data/json/*
 data/markdown/*
-# data/static/
+data/static/*
