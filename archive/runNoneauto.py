@@ -5,8 +5,13 @@ import os
 import json
 from datetime import datetime
 import subprocess
+import time
 
 rc = subprocess.call("./get-data-bash.sh")
+
+for i in range(10):
+    print(i + 1)
+    time.sleep(1)
 
 path = "./stockData"
 os.chdir(path)
@@ -47,7 +52,7 @@ new_path = "../parsedStockData"
 os.chdir(new_path)
 
 current_data_and_time = datetime.now()
-current_time_string = current_data_and_time.strftime("%d_%m_%Y_%H:%M:%S")
+current_time_string = current_data_and_time.strftime("%m_%d_%Y_%H:%M:%S")
 parsed_json_data_name = "parseData" + current_time_string + ".json"
 
 with open(parsed_json_data_name, "w") as outfile:

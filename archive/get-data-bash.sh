@@ -1,6 +1,6 @@
 #!/bin/bash
  
-current_time=$(date "+%Y_%m_%d_%H:%M:%S")
+current_time=$(date "+%m_%d_%Y_%H:%M:%S")
 
 uuid=`uuidgen`
 # echo "$uuid"
