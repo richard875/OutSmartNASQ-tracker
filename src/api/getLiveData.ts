@@ -5,6 +5,7 @@ import * as fs from "fs";
 //#region helper
 let currentDateAndTime = () => {
   let current = new Date();
+
   return `${("0" + (current.getMonth() + 1)).slice(-2)}_${(
     "0" + current.getDate()
   ).slice(-2)}_${current.getFullYear()}_${("0" + current.getHours()).slice(
@@ -30,5 +31,5 @@ async function getRawStockAPI() {
 }
 //#endregion
 
-// export
-export default getRawStockAPI;
+// init
+getRawStockAPI();

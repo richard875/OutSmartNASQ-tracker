@@ -1,3 +1,5 @@
-**To start**
+# Start the program
 
-$ watch -n 5 bash main.sh
+## Repeat every 30 seconds
+
+$ watch -n 30 bash main.sh

@@ -1,5 +1,6 @@
 import makeStockHeading from "./makeStockHeading";
 import makeIndividualStockData from "./makeIndividualStockData";
+import checkEmailStatus from "../helper/checkIfSendEmail";
 
 const stockNoLongerExsits = async (
   text: string,
@@ -25,6 +26,7 @@ const stockNoLongerExsits = async (
     }
 
     text += "\n</table>";
+    checkEmailStatus.dataHasChanged = true;
   } else {
     text += "\n<p style='text-align: center'>Nothing has changed</p>";
   }

@@ -1,9 +1,9 @@
-import fetch from "node-fetch";
+let changed: boolean = false;
 
-var getStockRaw = async () => {
-  return await fetch(
-    `https://finnhub.io/api/v1/quote?symbol=AAPL&token=c0fnrov48v6snribf4q0`
-  ).then((data) => data.text());
+const changeState = (changed: boolean) => {
+  changed = true;
 };
 
-getStockRaw().then((x) => console.log(x));
+changeState(changed);
+
+console.log(changed);

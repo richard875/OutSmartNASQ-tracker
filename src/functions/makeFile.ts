@@ -11,7 +11,7 @@ const secondlateststockData = require(`../../data/json/${LatestFiles.secondLates
 
 const makeData = async () => {
   let makeData: string = ""; // declear string
-  makeData += '<body style="width: 50%; margin: 0 auto;">';
+  makeData += '<body style="width: 75%; margin: 0 auto;">';
   makeData = addBlankLine(makeData, 2);
   makeData += "\n<h1 style='text-align: center'>OutSmartNASQ</h1>";
   makeData += `\n<h2 style='text-align: center'>Data as ${LatestFiles.latestDataTime}</h2>`;

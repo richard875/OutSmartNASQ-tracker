@@ -1,4 +1,5 @@
 import getInstrument from "../helper/getStock";
+import checkEmailStatus from "../helper/checkIfSendEmail";
 
 const stockPercentageChanged = (
   text: string,
@@ -56,6 +57,7 @@ const stockPercentageChanged = (
       text += "\n</tr>";
     }
     text += "\n</table>";
+    checkEmailStatus.dataHasChanged = true;
   } else {
     text += "\n<p style='text-align: center'>Nothing has changed</p>";
   }
