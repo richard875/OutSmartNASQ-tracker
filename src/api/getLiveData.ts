@@ -4,7 +4,7 @@ import * as fs from "fs";
 
 //#region helper
 let currentDateAndTime = () => {
-  let current = new Date();
+  let current = new Date(Date.now() - 1080 * 60 * 1000); // Auckland to est
 
   return `${("0" + (current.getMonth() + 1)).slice(-2)}_${(
     "0" + current.getDate()
