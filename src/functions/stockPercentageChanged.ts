@@ -6,18 +6,14 @@ const stockPercentageChanged = (
   lateststockData: any,
   secondlateststockData: any
 ) => {
-  let stockUnchanged = [];
+  let stocksUnchanged = lateststockData.filter((oldStock: any) =>
+    secondlateststockData
+      .map((x: any) => x.instrumentId)
+      .includes(oldStock.instrumentId)
+  );
+
   let stockThatChangedPercentage = [];
-
-  lateststockData.map((newStock: any) => {
-    return secondlateststockData.filter(
-      (oldStock: any) => oldStock.instrumentId === newStock.instrumentId
-    ).length == 0
-      ? null
-      : stockUnchanged.push(newStock);
-  });
-
-  let stockPercentageChanged = stockUnchanged.filter((stock: any) => {
+  let stockPercentageChanged = stocksUnchanged.filter((stock: any) => {
     let changedPercentage = Number(
       (
         lateststockData.filter(

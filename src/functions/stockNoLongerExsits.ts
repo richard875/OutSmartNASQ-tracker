@@ -7,15 +7,12 @@ const stockNoLongerExsits = async (
   lateststockData: any,
   secondlateststockData: any
 ) => {
-  let stocksRemoved = [];
-
-  secondlateststockData.map((oldStock: any) => {
-    return lateststockData.filter(
-      (newStock: any) => newStock.instrumentId === oldStock.instrumentId
-    ).length == 0
-      ? stocksRemoved.push(oldStock)
-      : null;
-  });
+  let stocksRemoved = secondlateststockData.filter(
+    (oldStock: any) =>
+      !lateststockData
+        .map((x: any) => x.instrumentId)
+        .includes(oldStock.instrumentId)
+  );
 
   if (stocksRemoved.length) {
     text += "\n<table style='width: 100%;'>";

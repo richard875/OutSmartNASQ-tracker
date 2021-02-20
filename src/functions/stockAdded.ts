@@ -7,15 +7,12 @@ const stockAdded = async (
   lateststockData: any,
   secondlateststockData: any
 ) => {
-  let stocksAdd = [];
-
-  lateststockData.map((newStock: any) => {
-    return secondlateststockData.filter(
-      (oldStock: any) => oldStock.instrumentId === newStock.instrumentId
-    ).length == 0
-      ? stocksAdd.push(newStock)
-      : null;
-  });
+  let stocksAdd = lateststockData.filter(
+    (oldStock: any) =>
+      !secondlateststockData
+        .map((x: any) => x.instrumentId)
+        .includes(oldStock.instrumentId)
+  );
 
   if (stocksAdd.length) {
     text += "\n<table style='width: 100%;'>";
