@@ -1,0 +1,102 @@
+[
+  {
+    "year": 2021,
+    "name": "new-years-day",
+    "dayInWeek": "friday",
+    "monthName": "january",
+    "monthNameShort": "jan",
+    "monthNumber": 1,
+    "date": 1,
+    "halfDay": false
+  },
+  {
+    "year": 2021,
+    "name": "mlk-jr-day",
+    "dayInWeek": "monday",
+    "monthName": "january",
+    "monthNameShort": "jan",
+    "monthNumber": 1,
+    "date": 18,
+    "halfDay": false
+  },
+  {
+    "year": 2021,
+    "name": "presidents-day",
+    "dayInWeek": "monday",
+    "monthName": "february",
+    "monthNameShort": "feb",
+    "monthNumber": 2,
+    "date": 15,
+    "halfDay": false
+  },
+  {
+    "year": 2021,
+    "name": "good-friday",
+    "dayInWeek": "friday",
+    "monthName": "april",
+    "monthNameShort": "apr",
+    "monthNumber": 4,
+    "date": 2,
+    "halfDay": false
+  },
+  {
+    "year": 2021,
+    "name": "memorial-day",
+    "dayInWeek": "monday",
+    "monthName": "may",
+    "monthNameShort": "may",
+    "monthNumber": 5,
+    "date": 31,
+    "halfDay": false
+  },
+  {
+    "year": 2021,
+    "name": "independence-day",
+    "dayInWeek": "monday",
+    "monthName": "july",
+    "monthNameShort": "jul",
+    "monthNumber": 7,
+    "date": 5,
+    "halfDay": false
+  },
+  {
+    "year": 2021,
+    "name": "labor-day",
+    "dayInWeek": "monday",
+    "monthName": "september",
+    "monthNameShort": "sep",
+    "monthNumber": 9,
+    "date": 6,
+    "halfDay": false
+  },
+  {
+    "year": 2021,
+    "name": "thanksgiving-day",
+    "dayInWeek": "thursday",
+    "monthName": "november",
+    "monthNameShort": "nov",
+    "monthNumber": 11,
+    "date": 25,
+    "halfDay": false
+  },
+  {
+    "year": 2021,
+    "name": "day-after-thanksgiving-day",
+    "dayInWeek": "friday",
+    "monthName": "november",
+    "monthNameShort": "nov",
+    "monthNumber": 11,
+    "date": 26,
+    "halfDay": true
+  },
+  {
+    "year": 2021,
+    "name": "christmas-day",
+    "dayInWeek": "friday",
+    "monthName": "december",
+    "monthNameShort": "dec",
+    "monthNumber": 12,
+    "date": 24,
+    "halfDay": false
+  }
+]
