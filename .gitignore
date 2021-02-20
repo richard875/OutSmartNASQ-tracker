@@ -8,3 +8,6 @@ data/json/*
 data/markdown/*
 data/static/gmailData.ts
 data/static/tickerData.ts
+
+# test
+test/*
