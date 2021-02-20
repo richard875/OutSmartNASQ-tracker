@@ -1,9 +1,11 @@
-let changed: boolean = false;
+// const holidays: any = require("../data/static/holidays2021.json");
 
-const changeState = (changed: boolean) => {
-  changed = true;
-};
+// console.log(holidays[0].monthNumber);
 
-changeState(changed);
+// ** what happened if market opened/closed during the two step?**
 
-console.log(changed);
+let arr1 = [1, 2, 3, 4, 5, 6, 7];
+let arr2 = [1, 2, 3, 4, 5];
+
+let difference = arr1.filter((x) => !arr2.includes(x));
+console.log(difference);
