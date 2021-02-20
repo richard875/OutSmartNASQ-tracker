@@ -21,7 +21,7 @@ const index = async () => {
   )
     inDateRange = true;
 
-  if (checkEmailStatus.dataHasChanged || inDateRange || true) {
+  if (checkEmailStatus.dataHasChanged || inDateRange) {
     let emailHeading = "";
 
     if (checkEmailStatus.dataHasChanged) emailHeading = "Data changed";
