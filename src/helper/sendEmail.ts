@@ -1,51 +1,39 @@
 import * as nodemailer from "nodemailer";
 import LatestFiles from "../functions/latestFiles";
 import GmailInformation from "../../data/static/gmailData";
-import checkEmailStatus from "./checkIfSendEmail";
 
-const sendEmail = (makeData: string) => {
-  let inDateRange = false;
-  let currentTime = new Date();
-  if (currentTime.getMinutes() == 1) inDateRange = true;
+const sendEmail = (
+  makeData: string,
+  isMarketOpen: boolean,
+  emailHeading: string
+) => {
+  const nameToGet = new LatestFiles(isMarketOpen);
 
-  if (checkEmailStatus.dataHasChanged || inDateRange) {
-    let emailHeading = "";
+  let sendStockData = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: GmailInformation.emailAddress,
+      pass: GmailInformation.emailPassword,
+    },
+  });
 
-    if (checkEmailStatus.dataHasChanged) emailHeading = "Data changed";
-    if (inDateRange) emailHeading = "Hourly email";
-    if (checkEmailStatus.dataHasChanged && inDateRange)
-      emailHeading = "Hourly email and data changed";
-
-    console.log(emailHeading);
-
-    let sendStockData = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: GmailInformation.emailAddress,
-        pass: GmailInformation.emailPassword,
+  let mailOptions = {
+    from: GmailInformation.emailAddress,
+    to: GmailInformation.sendToEmail,
+    subject: `(${emailHeading}) Stock Data as ${nameToGet.latestDataTime}`,
+    html: makeData,
+    attachments: [
+      {
+        filename: `(${emailHeading}) Data as ${nameToGet.latestDataTime}.html`,
+        content: makeData,
+        contentType: "text/plain",
       },
-    });
+    ],
+  };
 
-    let mailOptions = {
-      from: GmailInformation.emailAddress,
-      to: GmailInformation.sendToEmail,
-      subject: `(${emailHeading}) Stock Data as ${LatestFiles.latestDataTime}`,
-      html: makeData,
-      attachments: [
-        {
-          filename: `(${emailHeading}) Data as ${LatestFiles.latestDataTime}.html`,
-          content: makeData,
-          contentType: "text/plain",
-        },
-      ],
-    };
-
-    sendStockData.sendMail(mailOptions, (error: any, info: any) =>
-      error ? console.log(error) : console.log("Email sent: " + info.response)
-    );
-  } else {
-    console.log("Data has not changed");
-  }
+  sendStockData.sendMail(mailOptions, (error: any, info: any) =>
+    error ? console.log(error) : console.log("Email sent: " + info.response)
+  );
 };
 
 export default sendEmail;

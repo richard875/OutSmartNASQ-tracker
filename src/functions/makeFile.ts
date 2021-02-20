@@ -4,17 +4,18 @@ import makeStockDataTable from "./makeStockDataTable";
 import stockNoLongerExsits from "./stockNoLongerExsits";
 import stockAdded from "./stockAdded";
 import stockPercentageChanged from "./stockPercentageChanged";
-import exportFile from "../helper/export";
-import sendEmail from "../helper/sendEmail";
-const lateststockData = require(`../../data/json/${LatestFiles.latestDataName}`);
-const secondlateststockData = require(`../../data/json/${LatestFiles.secondLatestDataName}`);
 
-const makeData = async () => {
+const makeData = async (isMarketOpen: boolean) => {
+  const nameToGet = new LatestFiles(isMarketOpen);
+  const inputLocation: string = isMarketOpen ? "marketOpen" : "marketClosed";
+  const lateststockData = require(`../../data/json/${inputLocation}/${nameToGet.latestDataName}`);
+  const secondlateststockData = require(`../../data/json/${inputLocation}/${nameToGet.secondLatestDataName}`);
+
   let makeData: string = ""; // declear string
   makeData += '<body style="width: 75%; margin: 0 auto;">';
   makeData = addBlankLine(makeData, 2);
   makeData += "\n<h1 style='text-align: center'>OutSmartNASQ</h1>";
-  makeData += `\n<h2 style='text-align: center'>Data as ${LatestFiles.latestDataTime}</h2>`;
+  makeData += `\n<h2 style='text-align: center'>Data as ${nameToGet.latestDataTime}</h2>`;
   makeData = addBlankLine(makeData, 2);
   makeData += "\n<h2 style='text-align: center'>Current holdings</h2>";
   makeData = await makeStockDataTable(
