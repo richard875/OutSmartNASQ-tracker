@@ -1,8 +1,9 @@
 import LatestFiles from "./latestFiles";
 import addBlankLine from "./blankLine";
 import makeStockDataTable from "./makeStockDataTable";
+import stockNoLongerExsits from "./stockNoLongerExsits";
+import stockAdded from "./stockAdded";
 import stockPercentageChanged from "./stockPercentageChanged";
-import stockChanged from "./stockChanged";
 
 const makeData = async (isMarketOpen: boolean) => {
   const nameToGet = new LatestFiles(isMarketOpen);
@@ -25,22 +26,14 @@ const makeData = async (isMarketOpen: boolean) => {
   makeData += "\n<h2 style='text-align: center'>Stock changes</h2>";
   makeData = addBlankLine(makeData, 1);
   makeData += "\n<p><b>Stock that no longer exsits (likely sold):</b></p>";
-  // Check stock removed
-  makeData = await stockChanged(
+  makeData = await stockNoLongerExsits(
     makeData,
     lateststockData,
-    secondlateststockData,
-    false
+    secondlateststockData
   );
   makeData = addBlankLine(makeData, 1);
   makeData += "\n<p><b>Stock added since last checked (likely bought):</b></p>";
-  // Check stock added
-  makeData = await stockChanged(
-    makeData,
-    lateststockData,
-    secondlateststockData,
-    true
-  );
+  makeData = await stockAdded(makeData, lateststockData, secondlateststockData);
   makeData = addBlankLine(makeData, 2);
   makeData += "\n<h2 style='text-align: center'>Stock percentage changes</h2>";
   makeData = addBlankLine(makeData, 1);
