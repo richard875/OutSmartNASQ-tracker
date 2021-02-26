@@ -2,24 +2,28 @@ import makeStockHeading from "./makeStockHeading";
 import makeIndividualStockData from "./makeIndividualStockData";
 import checkEmailStatus from "../helper/checkIfSendEmail";
 
-const stockNoLongerExsits = async (
+const stockChanged = async (
   text: string,
-  lateststockData: any,
-  secondlateststockData: any
+  newData: any,
+  oldData: any,
+  toAdd: boolean
 ) => {
-  let stocksRemoved = secondlateststockData.filter(
+  let lateststockData = toAdd ? newData : oldData;
+  let secondlateststockData = toAdd ? oldData : newData;
+
+  let stocksAdd = lateststockData.filter(
     (oldStock: any) =>
-      !lateststockData
+      !secondlateststockData
         .map((x: any) => x.instrumentId)
         .includes(oldStock.instrumentId)
   );
 
-  if (stocksRemoved.length) {
+  if (stocksAdd.length) {
     text += "\n<table style='width: 100%;'>";
     text = makeStockHeading(text);
 
-    for (var i = 0; i < stocksRemoved.length; i++) {
-      text += await makeIndividualStockData(stocksRemoved[i]);
+    for (var i = 0; i < stocksAdd.length; i++) {
+      text += await makeIndividualStockData(stocksAdd[i]);
     }
 
     text += "\n</table>";
@@ -31,4 +35,4 @@ const stockNoLongerExsits = async (
   return text;
 };
 
-export default stockNoLongerExsits;
+export default stockChanged;
