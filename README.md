@@ -100,3 +100,18 @@
 - Data fetched pre / post market will be stored in `data/json/marketClosed`
 - Data fetched durind market will be stored in `data/json/marketOpen`
 - Only `marketOpen` data will be calculated
+
+<br/>
+
+# Last trades
+
+- API GET
+- Attrubits:
+  - **client_request_id**: uuid
+  - **commentsLimit**: int
+  - **fromDate**: timestamp
+  - **itemsPerPage**: int
+  - **languagecode**: language (en-gb)
+  - **pageNumber**: int
+  - **repliesToCommentLimit**: int
+- https://www.etoro.com/api/streams/v2/streams/user-trades/OutSmartNSDQ?client_request_id=d1bc2a21-9e98-40f6-9180-606fe423d83f&commentsLimit=0&fromDate=1614996977623&itemsPerPage=5&languagecode=en-gb&pageNumber=1&repliesToCommentLimit=2
